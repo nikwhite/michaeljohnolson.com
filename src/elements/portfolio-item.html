@@ -13,61 +13,31 @@
 				<div id="content">
 					
 					<div id="summary">
-						<h2 id="project">Project Name</h2>
-						<p id="location" class="subhead">Rockford, IL <span id="budget">$53M</span></p>
+						<h2 id="project">[[projectName]]</h2>
 						
-						<p id="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisl nunc, suscipit et neque at, consequat iaculis purus. Proin ut tortor in turpis egestas pulvinar eget non est. Sed tempus pellentesque elit sit amet aliquam. Duis nec magna sollicitudin, congue ligula eu, euismod nunc. Proin consectetur sodales tristique.</p>
+						<p class="subhead">
+							<span>[[location]]</span> 
+							<span id="budget">[[budget]]</span>
+						</p>
+						
+						<p id="description">[[description]]</p>
 					</div>
 
-					<template is="dom-if" if="[[open]]" id="imageGridTemplate">
+					<template is="dom-if" if="[[open]]">
 						<div id="imageGrid">
-							<div class="two-one">
-								<div>
-									<img src="https://placehold.it/800x450">
-								</div>
-								<div>
-									<img src="https://placehold.it/225x400">
-								</div>
-							</div>
-							
-							<div class="one thin">
-								<div>
-									<img src="https://placehold.it/932x200">
-								</div>
-							</div>
-							
-							<div class="one-two">
-								<div>
-									<img src="https://placehold.it/225x400">
-								</div>
-								<div>
-									<img src="https://placehold.it/800x450">
-								</div>							
-							</div>
 
-							<div class="two-one-one">
-								<div>
-									<img src="https://placehold.it/400x225">
-								</div>
-								<div>
-									<img src="https://placehold.it/400x300">
-								</div>
-								<div>
-									<img src="https://placehold.it/400x300">
-								</div>							
-							</div>
+							<template is="dom-repeat" items="[[images]]">
+								<div class$="[[item.layout]]">
+									
+									<template is="dom-repeat" items="[[item.paths]]">
+										<div>
+											<img src$="[[item]]" on-load="_onImgLoad">
+										</div>
+									</template>
 
-							<div class="one-one-two">
-								<div>
-									<img src="https://placehold.it/400x300">
 								</div>
-								<div>
-									<img src="https://placehold.it/400x300">
-								</div>
-								<div>
-									<img src="https://placehold.it/400x225">
-								</div>			
-							</div>
+							</template>
+						
 						</div>
 					</template>
 
@@ -79,7 +49,6 @@
 
 <script>
 ;(function(){
-	var OPEN_PREVIEW_MARGIN = 8;
 
 	Polymer({
 		is: 'portfolio-item',
@@ -127,6 +96,11 @@
 			_animateImages: {
 				type: Boolean,
 				value: false
+			},
+
+			_expectImages: {
+				type: Number,
+				value: -1
 			}
 		},
 
@@ -135,32 +109,23 @@
 			'preview.transitionend': '_onPreviewTransitionEnd',
 			'preview.webkitTransitionEnd': '_onPreviewTransitionEnd',
 			'summary.transitionend': '_onSummaryTransitionEnd',
-			'summary.webkitTransitionEnd': '_onSummaryTransitionEnd',
-			'imageGridTemplate.dom-change': '_onContentRender'
+			'summary.webkitTransitionEnd': '_onSummaryTransitionEnd'
 		},
 
 		ready: function () {
 			this._debouncedPositionPreview = _.debounce(this._positionPreview.bind(this), 100)
 		},
 
-		_onContentRender: function () {
-			var images = this.querySelectorAll('#imageGrid img')
-			var promises = [ ]
+		_onImgLoad: function () {
+			if ( this._expectImages < 0 ) {
+				this._expectImages = _.flatten( _.pluck(this.images, 'paths') ).length
+			}
 
-			if (!images.length) return;
+			this._expectImages--;
 
-			_.forEach(images, function (img) {
-				promises.push( 
-					new Promise( function (resolve, reject) {
-						if (img.complete) return resolve();
-						img.onload = resolve;
-					})
-				)
-			})
-
-			Promise.all(promises).then(function(){
+			if (this._expectImages === 0) {
 				this._imagesLoaded = true
-			}.bind(this))
+			}
 		},
 
 		_computeClass: function (open, imagesLoaded, animateImages) {

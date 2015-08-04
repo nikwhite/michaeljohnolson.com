@@ -1,9 +1,27 @@
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="./portfolio-item.html">
+
 <dom-module id="portfolio-container">
 	
 	<template>
 		<section>
 			<div id="overlay"></div>
-			<content></content>
+			<template is="dom-repeat" items="[[portfolioItems]]">
+				<portfolio-item
+					project-name="[[item.projectName]]"
+					preview-image="[[item.previewImage]]"
+					budget="[[item.budget]]"
+					location="[[item.location]]"
+					description="[[item.description]]"
+					images="[[item.images]]">
+				</portfolio-item>
+			</template>
+
+			<iron-ajax auto
+				id="portfolioRequest"
+				url="/data/portfolio.json",
+				handle-as="json">
+			</iron-ajax>
 		</section>
 	</template>
 
@@ -12,6 +30,9 @@
 		is: 'portfolio-container',
 
 		properties: {
+			portfolioItems: {
+				type: Array
+			},
 			overlayExpanded: {
 				type: Boolean,
 				value: false
@@ -20,7 +41,8 @@
 
 		listeners: {
 			'open': 'expandOverlay',
-			'close': 'shrinkOverlay'
+			'close': 'shrinkOverlay',
+			'portfolioRequest.response': '_handleResponse'
 		},
 
 		_lockScrolling: function () {
@@ -31,11 +53,15 @@
 			document.documentElement.style.overflow = ''
 		},
 
+		_handleResponse: function (e) {
+			this.portfolioItems = e.detail.response.portfolioItems
+		},
+
 		expandOverlay: function (e) {
 			this.$.overlay.style.top = e.detail.y + 'px'
 			this.$.overlay.style.left = e.detail.x + 'px'
 			this.$.overlay.style.opacity = 1
-			mjo.util.transform(this.$.overlay, 'scale('+ Math.hypot(window.innerWidth, window.innerHeight) * 2 /10 +')')
+			mjo.util.transform(this.$.overlay, 'scale('+ Math.hypot(window.innerWidth, window.innerHeight) * 2 / 10 +')')
 			this._lockScrolling()
 		},
 

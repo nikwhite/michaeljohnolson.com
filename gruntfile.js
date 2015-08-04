@@ -47,11 +47,19 @@ module.exports = function(grunt) {
         },
 
         copy: {
+            data: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/data/',
+                    src: '**',
+                    dest: 'dist/data/'
+                }]
+            },
         	font: {
         		files: [{
         			expand: true,
         			cwd: 'src/font/',
-        			src: '*',
+        			src: '**',
         			dest: 'dist/font/'
         		}]
         	},
@@ -59,7 +67,7 @@ module.exports = function(grunt) {
         		files: [{
         			expand:true,
         			cwd: 'src/img/',
-        			src: '*',
+        			src: '**',
         			dest: 'dist/img/'
         		}]
         	}, 
@@ -74,9 +82,8 @@ module.exports = function(grunt) {
         	bower: {
         		files: [{
         			expand: true,
-        			cwd: 'bower_components',
-        			src: ['webcomponentsjs/*.js'],
-        			dest: 'dist/js'
+        			src: ['bower_components/**'],
+        			dest: 'dist/'
         		}]
         	}
         },
@@ -86,6 +93,10 @@ module.exports = function(grunt) {
         		files: ['src/sass/**'],
         		tasks: ['sass', 'postcss']
         	},
+            data: {
+                files: ['src/data/**'],
+                tasks: ['copy:data']
+            },
         	img: {
         		files: ['src/img/**'],
         		tasks: ['copy:img']

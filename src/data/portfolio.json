@@ -1,0 +1,30 @@
+{
+	"portfolioItems": [{
+		"projectName": "Practice Velocity",
+		"budget": "$25M",
+		"location": "Rockford, IL",
+		"previewImage": "img/practice-velocity/practice-velocity_tall.jpg",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisl nunc, suscipit et neque at, consequat iaculis purus. Proin ut tortor in turpis egestas pulvinar eget non est. Sed tempus pellentesque elit sit amet aliquam. Duis nec magna sollicitudin, congue ligula eu, euismod nunc. Proin consectetur sodales tristique.",
+		"images": [
+			{
+				"layout": "two-one",
+				"paths": [
+					"https://placehold.it/800x450",
+					"https://placehold.it/225x400"
+				]
+			}, {
+				"layout": "one-one-two",
+				"paths": [
+					"https://placehold.it/400x300",
+					"https://placehold.it/400x300",
+					"https://placehold.it/400x225"
+				]
+			}, {
+				"layout": "one",
+				"paths": [
+					"https://placehold.it/932x200"
+				]
+			}
+		]
+	}]
+}
