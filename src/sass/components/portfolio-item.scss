@@ -1,0 +1,179 @@
+
+	img {
+		display: block;
+		max-width: 100%;
+	}
+
+	#content-container {
+		top: 0;
+		left: 0;
+		position: fixed;
+		padding-left: 5%;
+		width: 100%;
+		box-sizing: border-box;
+		overflow: auto;
+    	height: 100%;
+	}
+
+	#content {
+		width: 100%;
+		display: flex;
+		box-sizing: border-box;
+	}
+
+	#preview {
+		margin: 0;
+		cursor: pointer;
+		transition: transform 400ms cubic-bezier(.16,.17,.13,1) 0ms;
+		z-index: 2;
+		display: block;
+		min-width: auto;
+		border-radius: 0;
+	}
+
+	#preview paper-material {
+		padding: 0;
+	}
+
+	#preview paper-ripple {
+		color: white;
+		z-index: 2;
+	}
+
+	#summary {
+		padding-left: $standard-padding;
+		flex-basis: auto;
+		width: 30%;
+		opacity: 0;
+		transform: translateX(-10%);
+		transition: all 400ms cubic-bezier(.16,.17,.13,1) 200ms;
+	}
+
+	#summary.play-animation {
+		opacity: 1;
+		transform: translateX(0%);
+	}
+
+	@keyframes slide {
+		0% {opacity: 0; transform: translateX(-10%)}
+		100% {opacity: 1; transform: translateX(0)}
+	}
+	@keyframes slide-out {
+		0% {opacity: 1; transform: translateX(0)}
+		100% {opacity: 0; transform: translateX(-10%)}
+	}
+
+	#budget {
+		float: right;
+		letter-spacing: 0.15em;
+	}
+
+	#imageGrid {
+		padding: $small-padding;
+		flex-basis: auto;
+		width: 70%;
+	}
+
+	#imageGrid img {
+		opacity: 0;
+	}
+
+	#imageGrid > * {
+		display: flex;
+		align-items: center;
+		flex-basis:60%;
+	}
+
+	#imageGrid > * > div {
+		padding: $small-padding;
+		min-width: 0px; // Firefox flex fix 
+	}
+
+	.two-one > div:nth-child(1) {
+		flex-basis: 76%;
+	}
+	.two-one > div:nth-child(2) {
+		flex-basis: 24%;
+	}
+
+	.one-two > div:nth-child(1) {
+		flex-basis: 24%;
+	}
+	.one-two > div:nth-child(2) {
+		flex-basis: 76%;
+	}
+
+	.two-one-one > div:nth-child(1) {
+		flex-basis: 40%;
+	}
+	.two-one-one > div:nth-child(2) {
+		flex-basis: 30%;
+	}
+	.two-one-one > div:nth-child(3) {
+		flex-basis: 30%;
+	}
+
+	.one-one-two > div:nth-child(1) {
+		flex-basis: 30%;
+	}
+	.one-one-two > div:nth-child(2) {
+		flex-basis: 30%;
+	}
+	.one-one-two > div:nth-child(3) {
+		flex-basis: 40%;
+	}
+
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(1) > div:nth-child(1) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 0ms;
+	}
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(1) > div:nth-child(2) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 100ms;
+	}
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(1) > div:nth-child(3) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 200ms;
+	}
+
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(2) > div:nth-child(1) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 100ms;
+	}
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(2) > div:nth-child(2) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 200ms;
+	}
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(2) > div:nth-child(3) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 300ms;
+	}
+
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(3) > div:nth-child(1) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 200ms;
+	}
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(3) > div:nth-child(2) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 300ms;
+	}
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(3) > div:nth-child(3) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 400ms;
+	}
+
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(4) > div:nth-child(1) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 300ms;
+	}
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(4) > div:nth-child(2) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 400ms;
+	}
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(4) > div:nth-child(3) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 500ms;
+	}
+
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(5) > div:nth-child(1) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 400ms;
+	}
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(5) > div:nth-child(2) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 500ms;
+	}
+	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(5) > div:nth-child(3) img {
+		animation: imgLoad 350ms cubic-bezier(.16,.17,.13,1) normal forwards 600ms;
+	}
+
+	@keyframes imgLoad {
+		0% { opacity: 0; transform: scale(0.75);}
+		100% { opacity: 1; transform: scale(1);}
+	}

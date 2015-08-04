@@ -1,0 +1,47 @@
+section {
+	display: block;
+	margin: -$small-padding;
+}
+
+section:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+portfolio-item {
+	box-sizing: border-box;
+	max-width: $portfolio-item-width;
+	float: left;
+	padding: $standard-padding;
+	display: block;
+	z-index: 1;
+	position: relative;
+	animation: zindexChange 500ms linear 0s normal forwards;
+}
+
+portfolio-item[open] {
+	z-index: 3;
+	animation: none;
+}
+
+#overlay {
+	position: fixed;
+	opacity: 0.75;
+	z-index: 2;
+	background: white;
+	width: 10px;
+	height: 10px;
+	margin-top: -5px;
+	margin-left: -5px;
+	border-radius: 50%;
+	top: 0;
+	left: 0;
+	transition: all 500ms cubic-bezier(.16,.17,.13,1) 0s;
+}
+
+@keyframes zindexChange {
+	0%   { z-index: 3; }
+	99%  { z-index: 3; }
+	100% { z-index: 1; }
+}

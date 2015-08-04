@@ -1,0 +1,265 @@
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<dom-module id="portfolio-item">
+
+	<template>
+		<article class$="[[ _computeClass(open, _imagesLoaded, _animateImages) ]]">
+
+			<paper-button id="preview" raised>
+				<img src$="[[previewImage]]">
+			</paper-button>
+
+			<div id="content-container" hidden$="[[!open]]">
+				<div id="content">
+					
+					<div id="summary">
+						<h2 id="project">Project Name</h2>
+						<p id="location" class="subhead">Rockford, IL <span id="budget">$53M</span></p>
+						
+						<p id="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisl nunc, suscipit et neque at, consequat iaculis purus. Proin ut tortor in turpis egestas pulvinar eget non est. Sed tempus pellentesque elit sit amet aliquam. Duis nec magna sollicitudin, congue ligula eu, euismod nunc. Proin consectetur sodales tristique.</p>
+					</div>
+
+					<template is="dom-if" if="[[open]]" id="imageGridTemplate">
+						<div id="imageGrid">
+							<div class="two-one">
+								<div>
+									<img src="https://placehold.it/800x450">
+								</div>
+								<div>
+									<img src="https://placehold.it/225x400">
+								</div>
+							</div>
+							
+							<div class="one thin">
+								<div>
+									<img src="https://placehold.it/932x200">
+								</div>
+							</div>
+							
+							<div class="one-two">
+								<div>
+									<img src="https://placehold.it/225x400">
+								</div>
+								<div>
+									<img src="https://placehold.it/800x450">
+								</div>							
+							</div>
+
+							<div class="two-one-one">
+								<div>
+									<img src="https://placehold.it/400x225">
+								</div>
+								<div>
+									<img src="https://placehold.it/400x300">
+								</div>
+								<div>
+									<img src="https://placehold.it/400x300">
+								</div>							
+							</div>
+
+							<div class="one-one-two">
+								<div>
+									<img src="https://placehold.it/400x300">
+								</div>
+								<div>
+									<img src="https://placehold.it/400x300">
+								</div>
+								<div>
+									<img src="https://placehold.it/400x225">
+								</div>			
+							</div>
+						</div>
+					</template>
+
+				</div>
+			</div>
+
+		</article>
+	</template>
+
+<script>
+;(function(){
+	var OPEN_PREVIEW_MARGIN = 8;
+
+	Polymer({
+		is: 'portfolio-item',
+
+		properties: {
+			open: {
+				type: Boolean,
+				value: false,
+				reflectToAttribute: true,
+				notify: true,
+				observer: '_onOpen'
+			},
+
+			projectName: String,
+
+			location: String,
+
+			budget: String, 
+
+			description: String,
+			
+			previewImage: String,
+
+			/**
+			 * [images description]
+			 * @type { Array[ Object{paths[ ],layout} ... ] }
+			 */
+			images: Array,
+			
+			_transitioning: {
+				type: Boolean,
+				value: false
+			},
+
+			_initialRender: {
+				type: Boolean, 
+				value: true
+			},
+			
+			_imagesLoaded: {
+				type: Boolean,
+				value: false
+			},
+
+			_animateImages: {
+				type: Boolean,
+				value: false
+			}
+		},
+
+		listeners: {
+			'preview.tap': '_onPreviewTap',
+			'preview.transitionend': '_onPreviewTransitionEnd',
+			'preview.webkitTransitionEnd': '_onPreviewTransitionEnd',
+			'summary.transitionend': '_onSummaryTransitionEnd',
+			'summary.webkitTransitionEnd': '_onSummaryTransitionEnd',
+			'imageGridTemplate.dom-change': '_onContentRender'
+		},
+
+		ready: function () {
+			this._debouncedPositionPreview = _.debounce(this._positionPreview.bind(this), 100)
+		},
+
+		_onContentRender: function () {
+			var images = this.querySelectorAll('#imageGrid img')
+			var promises = [ ]
+
+			if (!images.length) return;
+
+			_.forEach(images, function (img) {
+				promises.push( 
+					new Promise( function (resolve, reject) {
+						if (img.complete) return resolve();
+						img.onload = resolve;
+					})
+				)
+			})
+
+			Promise.all(promises).then(function(){
+				this._imagesLoaded = true
+			}.bind(this))
+		},
+
+		_computeClass: function (open, imagesLoaded, animateImages) {
+			return [
+				'portfolio-item',
+				open ? 'open' : '',
+				imagesLoaded ? 'imagesLoaded' : '',
+				animateImages ? 'animateImages' : ''
+			].join(' ');
+		},
+
+		_onPreviewTap: function (e) {
+			if (this._transitioning) return
+
+			if (this.open) {
+				this.minimize()
+			} else {
+				this.maximize(e.detail.x, e.detail.y)
+			}
+		},
+
+		_onPreviewTransitionEnd: function () {
+			this._transitioning = false
+		},
+
+		_onOpen: function (open) {
+			setTimeout(function(){
+				if (open) {
+					this.$.summary.classList.add('play-animation')
+				} else {
+					this.$.summary.classList.remove('play-animation')
+				}	
+			}.bind(this), 20)
+		},
+
+		_onSummaryTransitionEnd: function () {
+			if (this.open) 
+				this._animateImages = true
+		},
+
+		_translatePreview: function (x, y, scale) {
+			mjo.util.transform(this.$.preview, 'translate('+x+'px,'+y+'px) scale('+scale+')')
+			this._transitioning = true
+		},
+
+		_positionPreview: function () {
+			var rect = this.$.preview.parentNode.getBoundingClientRect()
+			var scale = window.innerHeight / rect.height 
+			var previewTop = rect.top
+			var previewLeft = rect.left
+			var newWidth = rect.width * scale
+			var deltaH = rect.height * scale - rect.height
+			var deltaW = newWidth - rect.width
+			var y = 0
+			var x = 0
+ 
+			if ( previewTop < 0 ) {
+				y = Math.abs(previewTop) + (deltaH/2)
+			} else {
+				y = -previewTop + (deltaH/2)
+			}
+
+			x = -previewLeft + (deltaW/2)
+
+			if ( newWidth > window.innerWidth * 0.05) {
+				x = x + (window.innerWidth * 0.05) - newWidth
+			}
+
+			this._translatePreview(x, y, scale)
+		},
+
+		_bindToResize: function () {
+			window.addEventListener('resize',  this._debouncedPositionPreview)
+		},
+
+		_unbindFromResize: function () {
+			window.removeEventListener('resize',  this._debouncedPositionPreview)
+		},
+
+		_computeSummaryAnimation: function (open) {
+			return open ? 'play-animation' : ''
+		},
+
+		maximize: function (tapX, tapY) {
+			this._positionPreview()
+			this.open = true
+			this.fire('open', {x: tapX, y: tapY})
+			this._bindToResize()
+		},
+
+		minimize: function () {
+			this._translatePreview(0,0,1)
+			this.open = false
+			this.fire('close')
+			this._unbindFromResize()
+			this._animateImages = false
+		}
+	})
+}())
+</script>
+
+</dom-module>

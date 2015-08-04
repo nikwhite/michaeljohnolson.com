@@ -1,0 +1,51 @@
+<dom-module id="portfolio-container">
+	
+	<template>
+		<section>
+			<div id="overlay"></div>
+			<content></content>
+		</section>
+	</template>
+
+	<script>
+	Polymer({
+		is: 'portfolio-container',
+
+		properties: {
+			overlayExpanded: {
+				type: Boolean,
+				value: false
+			}
+		},
+
+		listeners: {
+			'open': 'expandOverlay',
+			'close': 'shrinkOverlay'
+		},
+
+		_lockScrolling: function () {
+			document.documentElement.style.overflow = 'hidden'
+		},
+
+		_unlockScrolling: function () {
+			document.documentElement.style.overflow = ''
+		},
+
+		expandOverlay: function (e) {
+			this.$.overlay.style.top = e.detail.y + 'px'
+			this.$.overlay.style.left = e.detail.x + 'px'
+			this.$.overlay.style.opacity = 1
+			mjo.util.transform(this.$.overlay, 'scale('+ Math.hypot(window.innerWidth, window.innerHeight) * 2 /10 +')')
+			this._lockScrolling()
+		},
+
+		shrinkOverlay: function () {
+			this.$.overlay.style.opacity = ''
+			mjo.util.transform(this.$.overlay, 'scale('+0+')')
+			this._unlockScrolling()
+		}
+
+	})
+	</script>
+
+</dom-module>

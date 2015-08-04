@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+@import "lib/normalize";
+@import "components/variables";
+@import "components/pier-regular";
+@import "components/portfolio-item";
+@import "components/portfolio-container";
+
+body { 
+	font-family: 'pier sans', helvetica, 'Franklin Gothic', sans-serif;
+	font-size: 14px;
+	line-height: 1.6;
+	padding: 0 2em;
+	color: $bodyColor;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+h1, h2 {
+	text-transform: uppercase;
+	font-weight: normal;
+    font-size: 1.375em;
+    letter-spacing: 0.2em;
+    margin: 1.6em 0;
+}
+
+header {
+	margin-bottom: 4em;
+
+	p {
+		@extend .subhead;
+	}
+}
+
+.subhead {
+	color: $subheadColor;
+	margin-top: -1.143em;
+	font-size:1em
+}
+
+
+
