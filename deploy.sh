@@ -2,8 +2,8 @@
 npm prune
 npm update
 
-bower prune
-bower update
+bower prune --allow-root
+bower update --allow-root
 
 cp -f config/michaeljohnolson.com /etc/nginx/sites-enabled/
 
