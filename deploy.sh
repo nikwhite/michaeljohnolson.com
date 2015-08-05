@@ -7,6 +7,6 @@ bower update
 
 cp -f config/michaeljohnolson.com /etc/nginx/sites-enabled/
 
-grunt prod 
+grunt
 
 service nginx reload
