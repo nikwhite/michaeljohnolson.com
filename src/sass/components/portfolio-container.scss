@@ -1,6 +1,6 @@
 section {
 	display: block;
-	margin: -$small-padding;
+	margin: -$standard-padding;
 }
 
 section:after {
@@ -11,13 +11,20 @@ section:after {
 
 portfolio-item {
 	box-sizing: border-box;
-	max-width: $portfolio-item-width;
+	max-width: $portfolio-item-width-large;
 	float: left;
 	padding: $standard-padding;
 	display: block;
 	z-index: 1;
 	position: relative;
-	animation: zindexChange 500ms linear 0s normal forwards;
+	animation: zindexChange 600ms linear 0s normal forwards;
+	
+	@media #{$medium} {
+		max-width: $portfolio-item-width-medium;
+	}
+	@media #{$small} {
+		max-width: $portfolio-item-width-small;
+	}
 }
 
 portfolio-item[open] {
@@ -27,7 +34,6 @@ portfolio-item[open] {
 
 #overlay {
 	position: fixed;
-	opacity: 0.75;
 	z-index: 2;
 	background: white;
 	width: 10px;
@@ -37,7 +43,7 @@ portfolio-item[open] {
 	border-radius: 50%;
 	top: 0;
 	left: 0;
-	transition: all 500ms cubic-bezier(.16,.17,.13,1) 0s;
+	transition: transform 500ms $easeFast 0s;
 }
 
 @keyframes zindexChange {

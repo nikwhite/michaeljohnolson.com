@@ -1,10 +1,115 @@
 {
 	"portfolioItems": [{
-		"projectName": "Practice Velocity",
-		"budget": "$25M",
-		"location": "Rockford, IL",
+		"projectName": "Practice Velocity Corporate Headquarters",
+		"budget": "$5.7M",
+		"location": "Machesney Park, IL",
 		"previewImage": "img/practice-velocity/practice-velocity_tall.jpg",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisl nunc, suscipit et neque at, consequat iaculis purus. Proin ut tortor in turpis egestas pulvinar eget non est. Sed tempus pellentesque elit sit amet aliquam. Duis nec magna sollicitudin, congue ligula eu, euismod nunc. Proin consectetur sodales tristique.",
+		"description": "The adaptive reuse Practice Velocity Corporate Headquarters transformed a dilapidated 60,000 square foot department store into a vibrant avant garde office space. From concept to closeout, I performed building serveys, schematic design, 3D virtual tours for CEO approval, cost estimating, construction document preparation, bidding oversight, and construction administration.",
+		"images": [
+			{
+				"layout": "two-one",
+				"paths": [
+					"https://placehold.it/800x450",
+					"https://placehold.it/225x400"
+				]
+			}, {
+				"layout": "one",
+				"paths": [
+					"https://placehold.it/950x200"
+				]
+			}, {
+				"layout": "twp-two",
+				"paths": [
+					"https://placehold.it/800x450",
+					"https://placehold.it/800x450"
+				]
+			}
+		]
+	}, {
+		"projectName": "Rockford Mass Transit District ESTC",
+		"budget": "$6M",
+		"location": "Rockford, IL",
+		"previewImage": "img/rockford-transit/rockford-mass-transit_tall.jpg",
+		"description": "The Rockford Mass Transit District East Side Transfer Center was designed to serve the public as a transportation hub between Rockford and Chicago. My involvement in this project consisted of schematic design, 3D rendering production, and construction document preparation.",
+		"images": [
+			{
+				"layout": "one-two",
+				"paths": [
+					"https://placehold.it/225x400",
+					"https://placehold.it/800x450"
+					
+				]
+			}, {
+				"layout": "two-one-one",
+				"paths": [
+					"https://placehold.it/400x225",
+					"https://placehold.it/400x300",
+					"https://placehold.it/400x300"
+				]
+			}, {
+				"layout": "one",
+				"paths": [
+					"https://placehold.it/950x200"
+				]
+			}
+		]
+	}, {
+		"projectName": "Jhoole Humanitarian Enterprise",
+		"budget": "$0.5M",
+		"location": "Maheshwar, India",
+		"previewImage": "img/jhoole/jhoole-humanitarian_tall.jpg",
+		"description": "Jhoole, a humanitarian enterprise production and design facility to be located in Maheshwar, India, strives to empower local female artisans in an otherwise impoverished region. As Jhoole gathers funds and support from individual benefactors and Rotary International, I have been donating design, master planning, and cost estimating services with hopes of seeing the project through to completion.",
+		"images": [
+			{
+				"layout": "one",
+				"paths": [
+					"https://placehold.it/950x200"
+				]
+			}, {
+				"layout": "one",
+				"paths": [
+					"https://placehold.it/950x300"
+				]
+			}, {
+				"layout": "one",
+				"paths": [
+					"https://placehold.it/950x200"
+				]
+			}
+		]
+	}, {
+		"projectName": "IBEW Local 364 Union Hall",
+		"budget": "$3M",
+		"location": "Rockford, IL",
+		"previewImage": "img/ibew-union/ibew-union-hall_tall.jpg",
+		"description": "The AIA Merit Award winning International Brotherhood of Electrical Workers Local 364 project doubled the size of an existing office and member hall and updated the building with a refined, contemporary design. I worked on this project from inception through completion, performing schematic design, 3D renderings, construction documents, construction observation and administration.",
+		"images": [
+			{
+				"layout": "one",
+				"paths": [
+					"https://placehold.it/950x300"
+				]
+			}, {
+				"layout": "two-one",
+				"paths": [
+					"https://placehold.it/800x450",
+					"https://placehold.it/225x400"
+				]
+			}, {
+				"layout": "two-one-one",
+				"paths": [
+					"https://placehold.it/400x225",
+					"https://placehold.it/400x300",
+					"https://placehold.it/400x300"
+				]
+			}
+		]
+	}, {
+		"projectName": "KSB Hospital ED, OR & Lobby Addition & Renovation",
+		"budget": "$24M",
+		"location": "Dixon, IL",
+		"previewImage": "img/ksb/ksb_tall.jpg",
+		"description": "This project consisted of the addition and renovation of the KSB Hospital Emergency Department, Operating Room, and Lobby. My responsibilities encompassed 3D virtual tours for CEO and board approval, schematic design, and construction document preparation.",
 		"images": [
 			{
 				"layout": "two-one",
@@ -22,7 +127,88 @@
 			}, {
 				"layout": "one",
 				"paths": [
-					"https://placehold.it/932x200"
+					"https://placehold.it/950x200"
+				]
+			}
+		]
+	}, {
+		"projectName": "Heddington Oaks",
+		"budget": "$35M",
+		"location": "Peoria, IL",
+		"previewImage": "img/heddington/heddington-oaks_tall.jpg",
+		"description": "Heddington Oaks is a 150,000 square foot non-profit skilled care home for the elderly. From the outset of this LEED Gold project, I performed a variety of duties including schematic design, the creation of 3D virtual tours for county board approval, construction document preparation, LEED credit reporting, overseeing the bidding process, and construction administration.",
+		"images": [
+			{
+				"layout": "two-one",
+				"paths": [
+					"https://placehold.it/800x450",
+					"https://placehold.it/225x400"
+				]
+			}, {
+				"layout": "one-one-two",
+				"paths": [
+					"https://placehold.it/400x300",
+					"https://placehold.it/400x300",
+					"https://placehold.it/400x225"
+				]
+			}, {
+				"layout": "one",
+				"paths": [
+					"https://placehold.it/950x200"
+				]
+			}
+		]
+	}, {
+		"projectName": "SNK America Tech Center & Showroom",
+		"budget": "$2M",
+		"location": "Mount Prospect, IL",
+		"previewImage": "img/snk/snk-america_tall.jpg",
+		"description": "An existing storage warehouse was renovated to become the SNK Tech Center, which combines a high-end showroom and demonstration facility to showcase the large machine tools designed and developed by SNK America. I provided schematic design, construction document composition, and produce 3D renderings for corporate approval.",
+		"images": [
+			{
+				"layout": "two-two",
+				"paths": [
+					"https://placehold.it/800x450",
+					"https://placehold.it/800x450"
+				]
+			}, {
+				"layout": "one-one-two",
+				"paths": [
+					"https://placehold.it/400x300",
+					"https://placehold.it/400x300",
+					"https://placehold.it/400x225"
+				]
+			}, {
+				"layout": "one",
+				"paths": [
+					"https://placehold.it/950x200"
+				]
+			}
+		]
+	}, {
+		"projectName": "Ogle County Public Safety Complex",
+		"budget": "$4.25M",
+		"location": "Oregon, IL",
+		"previewImage": "img/ogle-public-safety/ogle-county-public-safety_tall.jpg",
+		"description": "The Ogle County Public Safety Complex was conceived as a way to consolidate the ageing and outdated sheriff's station, coroner's office and 911 call center. The replacement facility resulted in greater efficiency and reduced operating costs through a decrease in overall built square footage. My responsibilities on this project included preparing construction documents, administrating the bidding process, providing construction administration throughout the course of the project, and presenting in monthly public meetings on project budget and construction status.",
+		"images": [
+			{
+				"layout": "one-two",
+				"paths": [
+					"https://placehold.it/225x400",
+					"https://placehold.it/800x450"
+				]
+			}, {
+				"layout": "two-one-one",
+				"paths": [
+					"https://placehold.it/400x225",
+					"https://placehold.it/400x300",
+					"https://placehold.it/400x300"
+				]
+			}, {
+				"layout": "one",
+				"paths": [
+					"https://placehold.it/950x200"
 				]
 			}
 		]

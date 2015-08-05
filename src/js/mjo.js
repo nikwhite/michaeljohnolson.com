@@ -1,16 +1,37 @@
 
-;(function(){
+window.mjo = {}
+window._ = require('lodash')
 
-	var page = require('page')
-	var Dispatcher = require('flux').Dispatcher
+mjo.dispatcher = new (require('flux').Dispatcher)()
+mjo.util = require('./util')
 
-	window.mjo = {}
-	window._ = require('lodash')
+mjo.actionTypes = {
+	CHANGE_SIZE: 'changeSize'
+}
 
-	mjo.dispatcher = new Dispatcher()
-	mjo.util = require('./util')
-	mjo.viewActions = {
-		
+mjo.viewActions = {
+	changeSize: function(size) {
+		mjo.dispatcher.dispatch({
+			actionType: mjo.actionTypes.CHANGE_SIZE,
+			newSize: size
+		})
 	}
+}
 
-}())
+window.addEventListener('WebComponentsReady', function () {
+
+	var enquire = require('enquire.js')
+
+	enquire.register('screen and (min-width:800.1px)', {
+		match: mjo.viewActions.changeSize.bind(this, 'large')
+	})
+
+	enquire.register('screen and (min-width:480.1px) and (max-width:800px)', {
+		match: mjo.viewActions.changeSize.bind(this, 'medium')
+	})
+
+	enquire.register('screen and (min-width:0px) and (max-width:480px)', {
+		match: mjo.viewActions.changeSize.bind(this, 'small')
+	})
+
+})

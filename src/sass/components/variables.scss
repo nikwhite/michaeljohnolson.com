@@ -3,4 +3,11 @@ $bodyColor: #444;
 $subheadColor: #888;
 $standard-padding: 1em;
 $small-padding: 0.25em;
-$portfolio-item-width: 20%;
+$portfolio-item-width-large: 20%;
+$portfolio-item-width-medium: 25%;
+$portfolio-item-width-small: 33.33%;
+$easeFast: cubic-bezier(.16,.17,.13,1);
+
+$large: "screen and (min-width:800px)";
+$medium: "screen and (min-width:0px) and (max-width:800px)";
+$small: "screen and (min-width:0px) and (max-width:480px)";

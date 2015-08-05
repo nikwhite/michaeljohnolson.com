@@ -1,13 +1,12 @@
-<link rel="import" href="../../bower_components/paper-button/paper-button.html">
-
 <dom-module id="portfolio-item">
 
 	<template>
 		<article class$="[[ _computeClass(open, _imagesLoaded, _animateImages) ]]">
+			<div id="backButton"></div>
 
-			<paper-button id="preview" raised>
+			<div id="preview">
 				<img src$="[[previewImage]]">
-			</paper-button>
+			</div>
 
 			<div id="content-container" hidden$="[[!open]]">
 				<div id="content">
@@ -49,6 +48,8 @@
 
 <script>
 ;(function(){
+	var PEEK_AMOUNT_PX_LEFT = 60;
+	var PEEK_AMOUNT_PX_TOP = 40;
 
 	Polymer({
 		is: 'portfolio-item',
@@ -71,6 +72,8 @@
 			description: String,
 			
 			previewImage: String,
+
+			previewSide: String,
 
 			/**
 			 * [images description]
@@ -101,7 +104,14 @@
 			_expectImages: {
 				type: Number,
 				value: -1
-			}
+			},
+
+			_previewSide: {
+				type: String,
+				value: 'left'
+			},
+
+			_dispatchToken: Number
 		},
 
 		listeners: {
@@ -114,6 +124,17 @@
 
 		ready: function () {
 			this._debouncedPositionPreview = _.debounce(this._positionPreview.bind(this), 100)
+			this._dispatchToken = mjo.dispatcher.register(this._actionHandler.bind(this))
+		},
+
+		_actionHandler: function(payload) {
+			if (payload.actionType === mjo.actionTypes.CHANGE_SIZE) {
+				if (payload.newSize === 'medium' || payload.newSize === 'small'){
+					this._previewSide = 'top'
+				} else {
+					this._previewSide = 'left'
+				}
+			}
 		},
 
 		_onImgLoad: function () {
@@ -162,8 +183,9 @@
 		},
 
 		_onSummaryTransitionEnd: function () {
-			if (this.open) 
+			if (this.open) {
 				this._animateImages = true
+			}
 		},
 
 		_translatePreview: function (x, y, scale) {
@@ -171,30 +193,38 @@
 			this._transitioning = true
 		},
 
-		_positionPreview: function () {
+		_positionPreviewLeft: function () {
 			var rect = this.$.preview.parentNode.getBoundingClientRect()
 			var scale = window.innerHeight / rect.height 
-			var previewTop = rect.top
-			var previewLeft = rect.left
 			var newWidth = rect.width * scale
 			var deltaH = rect.height * scale - rect.height
 			var deltaW = newWidth - rect.width
-			var y = 0
-			var x = 0
- 
-			if ( previewTop < 0 ) {
-				y = Math.abs(previewTop) + (deltaH/2)
-			} else {
-				y = -previewTop + (deltaH/2)
-			}
 
-			x = -previewLeft + (deltaW/2)
-
-			if ( newWidth > window.innerWidth * 0.05) {
-				x = x + (window.innerWidth * 0.05) - newWidth
-			}
+			var x = -rect.left + (deltaW/2) - newWidth + PEEK_AMOUNT_PX_LEFT
+ 			var y = -rect.top + (deltaH/2) 
 
 			this._translatePreview(x, y, scale)
+		},
+
+		_positionPreviewTop: function () {
+			var rect = this.$.preview.parentNode.getBoundingClientRect()
+			var scale = window.innerWidth / rect.width
+			var newHeight = rect.height * scale
+			var deltaH = newHeight - rect.height
+			var deltaW = rect.width * scale - rect.width
+
+			var x = -rect.left + Math.ceil(deltaW/2)
+ 			var y = -rect.top + (deltaH/2) - newHeight + PEEK_AMOUNT_PX_LEFT
+
+			this._translatePreview(x, y, scale)
+		},
+
+		_positionPreview: function () {
+			if (this._previewSide === 'left') {
+				this._positionPreviewLeft()
+			} else if (this._previewSide === 'top') {
+				this._positionPreviewTop()
+			}
 		},
 
 		_bindToResize: function () {
@@ -203,10 +233,6 @@
 
 		_unbindFromResize: function () {
 			window.removeEventListener('resize',  this._debouncedPositionPreview)
-		},
-
-		_computeSummaryAnimation: function (open) {
-			return open ? 'play-animation' : ''
 		},
 
 		maximize: function (tapX, tapY) {
