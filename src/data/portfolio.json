@@ -107,22 +107,15 @@
 		"description": "This project consisted of the addition and renovation of the KSB Hospital Emergency Department, Operating Room, and Lobby. My responsibilities encompassed 3D virtual tours for CEO and board approval, schematic design, and construction document preparation.",
 		"images": [
 			{
-				"layout": "two-one",
-				"paths": [
-					"https://placehold.it/800x450",
-					"https://placehold.it/225x400"
-				]
-			}, {
-				"layout": "one-one-two",
-				"paths": [
-					"https://placehold.it/400x300",
-					"https://placehold.it/400x300",
-					"https://placehold.it/400x225"
-				]
-			}, {
 				"layout": "one",
 				"paths": [
-					"https://placehold.it/950x200"
+					"img/ksb/full-lg-1.jpg"
+				]
+			}, {
+				"layout": "two-three",
+				"paths": [
+					"img/ksb/4x3-lg-1.jpg",
+					"img/ksb/16x9-lg-1.jpg"
 				]
 			}
 		]
