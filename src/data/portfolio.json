@@ -7,21 +7,19 @@
 		"description": "The adaptive reuse Practice Velocity Corporate Headquarters transformed a dilapidated 60,000 square foot department store into a vibrant avant garde office space. From concept to closeout, I performed building serveys, schematic design, 3D virtual tours for CEO approval, cost estimating, construction document preparation, bidding oversight, and construction administration.",
 		"images": [
 			{
-				"layout": "two-one",
+				"layout": "one",
 				"paths": [
-					"https://placehold.it/800x450",
-					"https://placehold.it/225x400"
+					"img/practice-velocity/full-lg-1.jpg"
 				]
 			}, {
 				"layout": "one",
 				"paths": [
-					"https://placehold.it/950x200"
+					"img/practice-velocity/full-lg-2.jpg"
 				]
 			}, {
-				"layout": "twp-two",
+				"layout": "one",
 				"paths": [
-					"https://placehold.it/800x450",
-					"https://placehold.it/800x450"
+					"img/practice-velocity/full-lg-3.jpg"
 				]
 			}
 		]
@@ -33,23 +31,16 @@
 		"description": "The Rockford Mass Transit District East Side Transfer Center was designed to serve the public as a transportation hub between Rockford and Chicago. My involvement in this project consisted of schematic design, 3D rendering production, and construction document preparation.",
 		"images": [
 			{
-				"layout": "one-two",
+				"layout": "two-three",
 				"paths": [
-					"https://placehold.it/225x400",
-					"https://placehold.it/800x450"
-					
+					"img/rockford-transit/16x9-lg-1.jpg",
+					"img/rockford-transit/3x4-lg-1.jpg"
 				]
 			}, {
-				"layout": "two-one-one",
+				"layout": "two-two",
 				"paths": [
-					"https://placehold.it/400x225",
-					"https://placehold.it/400x300",
-					"https://placehold.it/400x300"
-				]
-			}, {
-				"layout": "one",
-				"paths": [
-					"https://placehold.it/950x200"
+					"img/rockford-transit/16x9-sm-1.jpg",
+					"img/rockford-transit/16x9-sm-2.jpg"
 				]
 			}
 		]
@@ -66,7 +57,7 @@
 					"img/jhoole/full-lg-1.jpg"
 				]
 			}, {
-				"layout": "two-three",
+				"layout": "three-four",
 				"paths": [
 					"img/jhoole/4x3-lg-1.jpg",
 					"img/jhoole/16x9-lg-1.jpg"
@@ -112,7 +103,7 @@
 					"img/ksb/full-lg-1.jpg"
 				]
 			}, {
-				"layout": "two-three",
+				"layout": "three-four",
 				"paths": [
 					"img/ksb/4x3-lg-1.jpg",
 					"img/ksb/16x9-lg-1.jpg"
@@ -149,22 +140,16 @@
 		"description": "An existing storage warehouse was renovated to become the SNK Tech Center, which combines a high-end showroom and demonstration facility to showcase the large machine tools designed and developed by SNK America. I provided schematic design, construction document composition, and produce 3D renderings for corporate approval.",
 		"images": [
 			{
-				"layout": "two-two",
+				"layout": "two-three",
 				"paths": [
-					"https://placehold.it/800x450",
-					"https://placehold.it/800x450"
+					"img/snk/16x9-lg-1.jpg",
+					"img/snk/3x4-lg-1.jpg"
 				]
 			}, {
-				"layout": "one-one-two",
+				"layout": "three-four",
 				"paths": [
-					"https://placehold.it/400x300",
-					"https://placehold.it/400x300",
-					"https://placehold.it/400x225"
-				]
-			}, {
-				"layout": "one",
-				"paths": [
-					"https://placehold.it/950x200"
+					"img/snk/4x3-sm-1.jpg",
+					"img/snk/16x9-sm-1.jpg"
 				]
 			}
 		]
@@ -176,15 +161,15 @@
 		"description": "The Ogle County Public Safety Complex was conceived as a way to consolidate the ageing and outdated sheriff's station, coroner's office and 911 call center. The replacement facility resulted in greater efficiency and reduced operating costs through a decrease in overall built square footage. My responsibilities on this project included preparing construction documents, administrating the bidding process, providing construction administration throughout the course of the project, and presenting in monthly public meetings on project budget and construction status.",
 		"images": [
 			{
-				"layout": "two-three",
-				"paths": [
-					"img/ogle-public-safety/4x3-lg-1.jpg",
-					"img/ogle-public-safety/16x9-lg-1.jpg"
-				]
-			}, {
 				"layout": "one",
 				"paths": [
 					"img/ogle-public-safety/full-lg-1.jpg"
+				]
+			}, {
+				"layout": "three-four",
+				"paths": [
+					"img/ogle-public-safety/4x3-lg-1.jpg",
+					"img/ogle-public-safety/16x9-lg-1.jpg"
 				]
 			}
 		]
