@@ -176,22 +176,15 @@
 		"description": "The Ogle County Public Safety Complex was conceived as a way to consolidate the ageing and outdated sheriff's station, coroner's office and 911 call center. The replacement facility resulted in greater efficiency and reduced operating costs through a decrease in overall built square footage. My responsibilities on this project included preparing construction documents, administrating the bidding process, providing construction administration throughout the course of the project, and presenting in monthly public meetings on project budget and construction status.",
 		"images": [
 			{
-				"layout": "one-two",
+				"layout": "two-three",
 				"paths": [
-					"https://placehold.it/225x400",
-					"https://placehold.it/800x450"
-				]
-			}, {
-				"layout": "two-one-one",
-				"paths": [
-					"https://placehold.it/400x225",
-					"https://placehold.it/400x300",
-					"https://placehold.it/400x300"
+					"img/ogle-public-safety/4x3-lg-1.jpg",
+					"img/ogle-public-safety/16x9-lg-1.jpg"
 				]
 			}, {
 				"layout": "one",
 				"paths": [
-					"https://placehold.it/950x200"
+					"img/ogle-public-safety/full-lg-1.jpg"
 				]
 			}
 		]
