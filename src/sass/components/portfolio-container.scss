@@ -18,7 +18,7 @@ portfolio-item {
 	z-index: 1;
 	position: relative;
 	animation: zindexChange 600ms linear 0s normal forwards;
-	
+
 	@media #{$medium} {
 		max-width: $portfolio-item-width-medium;
 	}
