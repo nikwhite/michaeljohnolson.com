@@ -63,17 +63,18 @@
 			{
 				"layout": "one",
 				"paths": [
-					"https://placehold.it/950x200"
+					"img/jhoole/full-lg-1.jpg"
+				]
+			}, {
+				"layout": "two-three",
+				"paths": [
+					"img/jhoole/4x3-lg-1.jpg",
+					"img/jhoole/16x9-lg-1.jpg"
 				]
 			}, {
 				"layout": "one",
 				"paths": [
-					"https://placehold.it/950x300"
-				]
-			}, {
-				"layout": "one",
-				"paths": [
-					"https://placehold.it/950x200"
+					"img/jhoole/full-lg-2.jpg"
 				]
 			}
 		]
