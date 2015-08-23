@@ -87,20 +87,14 @@
 			{
 				"layout": "one",
 				"paths": [
-					"https://placehold.it/950x300"
+					"img/ibew-union/full-lg-1.jpg"
 				]
 			}, {
-				"layout": "two-one",
+				"layout": "one-two-one",
 				"paths": [
-					"https://placehold.it/800x450",
-					"https://placehold.it/225x400"
-				]
-			}, {
-				"layout": "two-one-one",
-				"paths": [
-					"https://placehold.it/400x225",
-					"https://placehold.it/400x300",
-					"https://placehold.it/400x300"
+					"img/ibew-union/9x16-sm-1.jpg",
+					"img/ibew-union/4x3-lg-1.jpg",
+					"img/ibew-union/9x16-sm-2.jpg"
 				]
 			}
 		]

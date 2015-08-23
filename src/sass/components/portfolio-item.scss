@@ -196,6 +196,16 @@
 	.two-two > div:nth-child(2) {
 		flex-basis: 50%;
 	}
+
+	.one-two-one > div:nth-child(1) {
+		flex-basis: 23%;
+	}
+	.one-two-one > div:nth-child(2) {
+		flex-basis: 54.5%;
+	}
+	.one-two-one > div:nth-child(3) {
+		flex-basis: 23%;	
+	}
 	
 
 	.open.imagesLoaded.animateImages #imageGrid > div:nth-child(1) {
