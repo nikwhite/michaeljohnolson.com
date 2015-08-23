@@ -139,22 +139,17 @@
 		"description": "Heddington Oaks is a 150,000 square foot non-profit skilled care home for the elderly. From the outset of this LEED Gold project, I performed a variety of duties including schematic design, the creation of 3D virtual tours for county board approval, construction document preparation, LEED credit reporting, overseeing the bidding process, and construction administration.",
 		"images": [
 			{
-				"layout": "two-one",
+				"layout": "one-two",
 				"paths": [
-					"https://placehold.it/800x450",
-					"https://placehold.it/225x400"
+					"img/heddington/9x16-lg-1.jpg",
+					"img/heddington/16x9-lg-1.jpg"
 				]
 			}, {
-				"layout": "one-one-two",
+				"layout": "two-one-one",
 				"paths": [
-					"https://placehold.it/400x300",
-					"https://placehold.it/400x300",
-					"https://placehold.it/400x225"
-				]
-			}, {
-				"layout": "one",
-				"paths": [
-					"https://placehold.it/950x200"
+					"img/heddington/16x9-sm-1.jpg",
+					"img/heddington/4x3-sm-1.jpg",
+					"img/heddington/4x3-sm-2.jpg"
 				]
 			}
 		]
